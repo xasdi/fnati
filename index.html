@@ -12,7 +12,12 @@
     <div id="gamehandler">
         <div id="game">
             <div id="backgroundcontainer">
-                <img id="imagebackground" src="/images/background.jpg">
+                <div id="actionboxes">
+                    <img id="imagebackground" src="/images/background.jpg">
+                    <div id="hallwayactionbox"></div>
+                    <div id="freddynose" onclick="playfreddynose()"></div>
+                </div>
+                
                 <button class="scrollbuttons"  id="leftscrollbutton" onclick="lookleft()"></button>
                 <button class="scrollbuttons"  id="rightscrollbutton" onclick="lookright()"></button>
             </div>

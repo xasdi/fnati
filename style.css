@@ -4,15 +4,21 @@ body,html {
     padding: 0;
     height: 0;
 }
+body{
+    background-color: black;
+    overflow-x: hidden;
+}
+
 #gamehandler{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 #game{
     height: 600px;
     width: 900px;
-    border: 2px solid black;
+    border: 10px solid white;
 }
 
 #backgroundcontainer{
@@ -24,11 +30,19 @@ body,html {
     
 }
 
+#actionboxes{
+    height: 600px;
+    width: 1200px;
+    position: relative;
+    left: -150px;
+    
+}
+
 #imagebackground{
     height: 600px;
     width: 1200px;
     position: absolute;
-    left: -150px;
+   
 }
 
 #gamehandler{
@@ -38,7 +52,6 @@ body,html {
 #leftscrollbutton{
     position: absolute;
     left: 5px;
-    top: 150px;
     background-image: url("/images/arrow.jpg");
     background-size: 40px 300px;
     background-repeat: no-repeat;
@@ -49,15 +62,38 @@ body,html {
 #rightscrollbutton{
     position: absolute;
     right: 5px;
-    top: 150px;
     background-image: url("/images/arrow.jpg");
     background-size: 40px 300px;
     background-repeat: no-repeat;
 }
 
 .scrollbuttons{
+    top: 110px;
     width: 40px;
     height: 300px;
+    opacity: 0.2;
+}
+
+#hallwayactionbox{
+    position: absolute;
+    left: 416px;
+    background-color: red;
+    z-index: 1000;
+    height: 360px;
+    width: 380px;
+    top: 137px;
     opacity: 0.1;
+}
+
+#freddynose{
+    position: absolute;
+    z-index: 1000;
+    height: 5px;
+    width: 5px;
+    background-color: red;
+    top: 151px;
+    left: 110px;
+    opacity: 0;
+
 }
 

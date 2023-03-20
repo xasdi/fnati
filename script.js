@@ -1,30 +1,22 @@
-var arrow;
+var leftarrow;
+var rightarrow;
 var start = false;
 var scrolleft = 0;
+var scrollright = 0;
 var imageref;
 var imagestyle;
 var currentimageposition;
-var leftimagechangeposition;
+var imagechangeposition;
 var newimageposition = 0;
+var freddynose = new Audio("/sounds/freddynoseboop.mp3");
 
 function startgame(){
-    leftimagechangeposition = document.getElementById("imagebackground");
-    arrow = document.getElementById("leftscrollbutton");
-    imageref = document.getElementById("imagebackground");
+    imagechangeposition = document.getElementById("actionboxes");
+    leftarrow = document.getElementById("leftscrollbutton");
+    rightarrow = document.getElementById("rightscrollbutton");
+    imageref = document.getElementById("actionboxes");
     
-    
-
-    
-    
-    
-        
-    
-    
-    
-    
-     
-        
-        setInterval(checkmouseposition, 500);
+    setInterval(checkmouseposition, 20);
 }
 
 function startloops(){
@@ -36,12 +28,12 @@ function checkmouseposition(){
     imagestyle = getComputedStyle(imageref);
     currentimageposition = imagestyle.left;
     currentimageposition = parseInt(currentimageposition, 10);
-    arrow.addEventListener("mouseover", () => {
+    leftarrow.addEventListener("mouseover", () => {
         scrolleft = 1; 
         console.log("myszka na przcisku");
     });
 
-    arrow.addEventListener("mouseout", () => {
+    leftarrow.addEventListener("mouseout", () => {
         scrolleft = 0;
         console.log("myszka po za przciskiem");
     });
@@ -49,13 +41,23 @@ function checkmouseposition(){
     if(scrolleft==1 && currentimageposition <= -10){
         console.log(currentimageposition);
         newimageposition = currentimageposition + 10;
-        leftimagechangeposition.style.left = newimageposition + "px";
+        imagechangeposition.style.left = newimageposition + "px";
     }
 
-    if(scrolleft==1 && currentimageposition <= -10){
+    rightarrow.addEventListener("mouseover", () => {
+        scrollright = 1; 
+        console.log("myszka na przcisku");
+    });
+
+    rightarrow.addEventListener("mouseout", () => {
+        scrollright = 0;
+        console.log("myszka po za przciskiem");
+    });
+
+    if(scrollright==1 && currentimageposition >= -290){
         console.log(currentimageposition);
-        newimageposition = currentimageposition + 10;
-        leftimagechangeposition.style.left = newimageposition + "px";
+        newimageposition = currentimageposition - 10;
+        imagechangeposition.style.left = newimageposition + "px";
     }
 }
 
@@ -63,6 +65,10 @@ function showzmienne(){
     console.log(scrolleft);
     console.log(imagechangeposition);
 
+}
+
+function playfreddynose(){
+    freddynose.play();
 }
 
 
