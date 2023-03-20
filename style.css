@@ -18,29 +18,41 @@ body,html {
 #backgroundcontainer{
     height: 600px;
     width: 900px;
-    background-image: url("/images/background.jpg");
-    background-repeat: no-repeat ;
-    background-position: -150px;
+    overflow:hidden;
     background-size: 1200px 600px; /* rozmiar całego obrazka */
     position: relative;
     
+}
+
+#imagebackground{
+    height: 600px;
+    width: 1200px;
+    position: absolute;
+    left: -150px;
 }
 
 #gamehandler{
     z-index: 100;
 }
 
-#rightscrollbutton{
+#leftscrollbutton{
     position: absolute;
-    top: 20px;
     left: 5px;
     top: 150px;
+    background-image: url("/images/arrow.jpg");
+    background-size: 40px 300px;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+
 }
 
-#leftscrollbutton{
+#rightscrollbutton{
     position: absolute;
     right: 5px;
     top: 150px;
+    background-image: url("/images/arrow.jpg");
+    background-size: 40px 300px;
+    background-repeat: no-repeat;
 }
 
 .scrollbuttons{
