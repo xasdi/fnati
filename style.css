@@ -1,0 +1,28 @@
+body,html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    height: 0;
+}
+#gamehandler{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#game{
+    height: 600px;
+    width: 600px;
+    border: 2px solid black;
+}
+
+#backgroundcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#gamehandler{
+    z-index: 100;
+}
+
