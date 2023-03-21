@@ -8,6 +8,9 @@ var imagestyle;
 var currentimageposition;
 var imagechangeposition;
 var newimageposition = 0;
+var fanimage;
+var fananimate = 1;
+
 
 
 function startgame(){
@@ -15,7 +18,11 @@ function startgame(){
     leftarrow = document.getElementById("leftscrollbutton");
     rightarrow = document.getElementById("rightscrollbutton");
     imageref = document.getElementById("actionboxes");
+    fanimage = document.getElementById("fananimation");
     
+    fansound();
+    /* setInterval(fansound, 100);  wentylator dziwek, loop z przerwą między audio do naprawy*/
+    setInterval(animatefan, 80);
     setInterval(checkmouseposition, 20);
 }
 
@@ -61,8 +68,20 @@ function checkmouseposition(){
     }
 }
 
+function animatefan(){
+    fanimage.src = 'animationimages/fan/' + fananimate + ".png";
+    if(fananimate < 3){
+        ++fananimate;
+    } else {
+        fananimate = 1;
+    }
+    
+}
+
+
+
 function showzmienne(){
-    console.log(scrolleft);
+    console.log(fanimage);
     console.log(imagechangeposition);
 
 }
