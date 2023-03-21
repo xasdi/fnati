@@ -20,13 +20,13 @@ body{
 }
 #game{
     height: 720px;
-    width: 900px;
+    width: 1200px;
     border: 10px solid white;
 }
 
 #backgroundcontainer{
     height: 720px;
-    width: 900px;
+    width: 1200px;
     overflow:hidden;
     background-size: 1600px 720px; 
     position: relative;
@@ -37,7 +37,7 @@ body{
     height: 720px;
     width: 1600px;
     position: relative;
-    left: -325px;
+    left: -200px;
     
 }
 

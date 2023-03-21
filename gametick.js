@@ -54,7 +54,7 @@ function checkmouseposition(){
         console.log("myszka po za przciskiem");
     });
 
-    if(scrollright==1 && currentimageposition >= -690){
+    if(scrollright==1 && currentimageposition >= -399){
         console.log(currentimageposition);
         newimageposition = currentimageposition - 10;
         imagechangeposition.style.left = newimageposition + "px";
