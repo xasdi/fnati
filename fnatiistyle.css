@@ -1,3 +1,6 @@
+*{
+    user-select: none;
+}
 body,html {
     width: 100%;
     height: 100%;
@@ -16,32 +19,32 @@ body{
     
 }
 #game{
-    height: 600px;
+    height: 720px;
     width: 900px;
     border: 10px solid white;
 }
 
 #backgroundcontainer{
-    height: 600px;
+    height: 720px;
     width: 900px;
     overflow:hidden;
-    background-size: 1200px 600px; /* rozmiar całego obrazka */
+    background-size: 1600px 720px; 
     position: relative;
     
 }
 
 #actionboxes{
-    height: 600px;
-    width: 1200px;
+    height: 720px;
+    width: 1600px;
     position: relative;
-    left: -150px;
+    left: -325px;
     
 }
 
 #imagebackground{
-    height: 600px;
-    width: 1200px;
-    position: absolute;
+    height: 720px;
+    width: 1600px;
+    position: absolute;     
    
 }
 
@@ -52,7 +55,7 @@ body{
 #leftscrollbutton{
     position: absolute;
     left: 5px;
-    background-image: url("/images/arrow.jpg");
+    background-image: url("fnatiimages/arrow.jpg");
     background-size: 40px 300px;
     background-repeat: no-repeat;
     transform: rotate(180deg);
@@ -62,7 +65,7 @@ body{
 #rightscrollbutton{
     position: absolute;
     right: 5px;
-    background-image: url("/images/arrow.jpg");
+    background-image: url("fnatiimages/arrow.jpg");
     background-size: 40px 300px;
     background-repeat: no-repeat;
 }
