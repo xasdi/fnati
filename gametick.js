@@ -8,7 +8,7 @@ var imagestyle;
 var currentimageposition;
 var imagechangeposition;
 var newimageposition = 0;
-var freddynose = new Audio("/sounds/freddynoseboop.mp3");
+
 
 function startgame(){
     imagechangeposition = document.getElementById("actionboxes");
@@ -67,9 +67,7 @@ function showzmienne(){
 
 }
 
-function playfreddynose(){
-    freddynose.play();
-}
+
 
 
 

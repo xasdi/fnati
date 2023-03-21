@@ -77,25 +77,16 @@ body{
     opacity: 0.2;
 }
 
-#hallwayactionbox{
-    position: absolute;
-    left: 416px;
-    background-color: red;
-    z-index: 1000;
-    height: 360px;
-    width: 380px;
-    top: 137px;
-    opacity: 0.1;
-}
+
 
 #freddynose{
     position: absolute;
     z-index: 1000;
-    height: 5px;
-    width: 5px;
+    height: 6px;
+    width: 7px;
     background-color: red;
-    top: 151px;
-    left: 110px;
+    top: 237px;
+    left: 676px;
     opacity: 0;
 
 }
