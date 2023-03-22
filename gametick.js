@@ -14,6 +14,7 @@ var leftdoorbutton;
 var leftbuttons;
 var leftlightbutton;
 var background;
+var leftdoor;
 
 
 
@@ -27,23 +28,34 @@ function startgame(){
     leftbuttons = document.getElementById("leftbuttons");
     leftlightbutton = document.getElementById("leftlightbutton");
     background = document.getElementById("imagebackground");
+    leftdoor = document.getElementById("leftdoorimage");
 
-    leftdoorbutton.addEventListener("mousedown", () => {
+    leftdoorbutton.addEventListener("click", () => {
+        if((leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdoorbasic.png") || ( leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdooropen.gif")){
+            doorsound();
+            leftdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/leftdoorclose.gif";
+            
+        } else{
+            doorsound();
+            leftdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/leftdooropen.gif";
+            
+        }
         
-        alert("amogus");
     })
-    leftdoorbutton.addEventListener("mouseup", () => {
-        
-        alert("amogus1");
-    })
+    
 
     leftlightbutton.addEventListener("mousedown", () => {
         background.src="fnatiimages/locations/lightleft.png";
-    })
-    leftlightbutton.addEventListener("mouseup", () => {
-        background.src="fnatiimages/locations/background.jpg";
+        playflashlight();
     })
 
+    leftlightbutton.addEventListener("mouseup", () => {
+        background.src="fnatiimages/locations/background.jpg";
+        stopflashlight();
+        
+    })
+
+    
      /*fansound();
     setInterval(fansound, 100);  wentylator dziwek, loop z przerwą między audio do naprawy*/
     /*setInterval(animatefan, 80);*/
@@ -106,7 +118,7 @@ function animatefan(){
 
 
 function showzmienne(){
-    console.log(leftbuttons);
+    console.log(leftdoor.src);
     console.log(imagechangeposition);
 
 }
