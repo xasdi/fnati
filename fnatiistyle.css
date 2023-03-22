@@ -44,7 +44,8 @@ body{
 #imagebackground{
     height: 720px;
     width: 1600px;
-    position: absolute;     
+    position: absolute;
+       
    
 }
 
@@ -71,10 +72,13 @@ body{
 }
 
 .scrollbuttons{
-    top: 110px;
+    top: 0px;
     width: 40px;
-    height: 300px;
-    opacity: 0.2;
+    height: 720px;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1000;
 }
 
 
@@ -101,5 +105,46 @@ body{
     left: 780px;
     opacity: 1;
     
+}
+
+#leftbuttons{
+    z-index: 50;
+    position: absolute;
+    top: 300px;
+    left: -5px;
+    width: 92px;
+    height: 251px;
+    background-image: url("/fnatiimages/buttons/leftbuttonbasic.png");
+}
+
+#leftdoorbutton{
+    width: 39px;
+    height: 58px;
+    position: absolute;
+    opacity: 0.2;
+    background-color: red;
+    top: 349px;
+    left: 23px;
+    z-index: 100;
+    border: 2px solid white;
+    
+}
+
+#leftlightbutton{
+    width: 39px;
+    height: 56px;
+    position: absolute;
+    opacity: 0;
+    background-color: red;
+    top: 429px;
+    left: 23px;
+    z-index: 100;
+    border: 2px solid white;
+    
+}
+
+#leftdoor{
+    width: 223px;
+    height: 720px;
 }
 
