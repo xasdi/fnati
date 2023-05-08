@@ -10,6 +10,9 @@ body,html {
 body{
     background-color: black;
     overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #gamehandler{
@@ -234,8 +237,33 @@ body{
 
 #menu{
     color: white;
+    text-align: center;
 }
 
 #game{
     display: none;
 }
+
+#loadingbar{
+    width: 300px;
+    height: 10px;
+    background-color: rgb(216, 216, 216) ;
+}
+
+#progress {
+    height: 10px;
+    width: 0px;
+    background: rgb(75, 75, 75);
+    transition: width 5s ease;
+    opacity: 1;
+    z-index: 2;
+}
+
+.nomargin{
+    margin: 0;
+}
+
+#playbutton{
+    visibility: hidden;
+}
+
