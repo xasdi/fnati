@@ -10,12 +10,21 @@ var imagechangeposition;
 var newimageposition = 0;
 var fanimage;
 var fananimate = 1;
+var background;
+var leftstate = 0;
+var rightstate = 0;
+
 var leftdoorbutton;
 var leftbuttons;
 var leftlightbutton;
-var background;
 var leftdoor;
+var leftbuttonsimage;
 
+var rightdoorbutton;
+var rightbuttons;
+var rightlightbutton;
+var rightdoor;
+var rightbuttonsimage;
 
 
 function startgame(){
@@ -24,11 +33,19 @@ function startgame(){
     rightarrow = document.getElementById("rightscrollbutton");
     imageref = document.getElementById("actionboxes");
     fanimage = document.getElementById("fananimation");
+    background = document.getElementById("imagebackground");
+
     leftdoorbutton = document.getElementById("leftdoorbutton");
     leftbuttons = document.getElementById("leftbuttons");
     leftlightbutton = document.getElementById("leftlightbutton");
-    background = document.getElementById("imagebackground");
     leftdoor = document.getElementById("leftdoorimage");
+    leftbuttonsimage = document.getElementById("leftbuttonsimage");
+
+    rightdoorbutton = document.getElementById("rightdoorbutton");
+    rightbuttons = document.getElementById("rightbuttons");
+    rightlightbutton = document.getElementById("rightlightbutton");
+    rightdoor = document.getElementById("rightdoorimage");
+    rightbuttonsimage = document.getElementById("rightbuttonsimage");
 
     leftdoorbutton.addEventListener("click", () => {
         if((leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdoorbasic.png") || ( leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdooropen.gif")){
@@ -42,18 +59,65 @@ function startgame(){
         }
         
     })
+
+    rightdoorbutton.addEventListener("click", () => {
+        if((rightdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/rightdoorbasic.png") || ( rightdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/rightdooropen.gif")){
+            doorsound();
+            rightdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/rightdoorclose.gif";
+            
+        } else{
+            doorsound();
+            rightdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/rightdooropen.gif";
+            
+        }
+        
+    })
     
 
     leftlightbutton.addEventListener("mousedown", () => {
         background.src="fnatiimages/locations/lightleft.png";
+        if(leftstate == 1){
+            leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbothon.png";
+        }else{
+        leftbuttonsimage.src="fnatiimages/buttons/leftbuttonlighton.png";
+        }
         playflashlight();
     })
 
     leftlightbutton.addEventListener("mouseup", () => {
         background.src="fnatiimages/locations/background.jpg";
+        if(leftstate == 1){
+            leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png";
+        }else{
+            leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbasic.png";
+        }
+        
         stopflashlight();
         
     })
+
+    rightlightbutton.addEventListener("mousedown", () => {
+        background.src="fnatiimages/locations/lightright.png";
+        if(rightstate == 1){
+            rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbothon.png";
+        }else{
+            rightbuttonsimage.src="fnatiimages/buttons/rightbuttonlighton.png";
+        }
+        playflashlight();
+    })
+
+    rightlightbutton.addEventListener("mouseup", () => {
+        background.src="fnatiimages/locations/background.jpg";
+        
+        if(rightstate == 1){
+            rightbuttonsimage.src="fnatiimages/buttons/rightbuttondooron.png";
+        }else{
+            rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbasic.png";
+        }
+        stopflashlight();
+        
+    })
+
 
     
      /*fansound();
@@ -62,6 +126,35 @@ function startgame(){
     setInterval(checkmouseposition, 20);
 }
 
+function leftbuttonhandler(){
+    
+    if(leftstate == 0){
+        leftstate = 1;
+        leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png"; 
+    } else {
+        leftstate = 0;
+        leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbasic.png"; 
+    }
+
+        
+
+   
+}
+
+function rightbuttonhandler(){
+    
+    if(rightstate == 0){
+        rightstate = 1;
+        rightbuttonsimage.src="fnatiimages/buttons/rightbuttondooron.png"; 
+    } else {
+        rightstate = 0;
+        rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbasic.png"; 
+    }
+
+        
+
+   
+}
 function startloops(){
     start = true;
 }
@@ -104,22 +197,14 @@ function checkmouseposition(){
     }
 }
 
-function animatefan(){
-    fanimage.src = 'animationimages/fan/' + fananimate + ".png";
-    if(fananimate < 3){
-        ++fananimate;
-    } else {
-        fananimate = 1;
-    }
-    
-}
+
 
 
 
 
 function showzmienne(){
-    console.log(leftdoor.src);
     console.log(imagechangeposition);
+    console.log(leftbuttonsimage);
 
 }
 

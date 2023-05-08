@@ -14,14 +14,21 @@
     <div id="gamehandler">
         <div id="game">
             <div id="backgroundcontainer">
+                <div id="jumpscaredisplay"></div>
                 <div id="actionboxes">
                     <img id="imagebackground" src="fnatiimages/locations/background.jpg">
                     
                     
-                    <div id="leftbuttons"><img src="fnatiimages/buttons/leftbuttonbasic.png"></div>
-                    <div id="leftdoorbutton"></div>
+                    <div id="leftbuttons"><img src="fnatiimages/buttons/leftbuttonbasic.png" id="leftbuttonsimage"></div>
+                    <div id="leftdoorbutton" onclick="leftbuttonhandler()"></div>
                     <div id="leftlightbutton"></div>
                     <div id="leftdoor"><img src="fnatiimages/doors/leftdoorbasic.png" id="leftdoorimage"></div>
+
+                    <div id="rightbuttons"><img src="fnatiimages/buttons/rightbuttonbasic.png" id="rightbuttonsimage"></div>
+                    <div id="rightdoorbutton" onclick="rightbuttonhandler()"></div>
+                    <div id="rightlightbutton"></div>
+                    <div id="rightdoor"><img src="fnatiimages/doors/rightdoorbasic.png" id="rightdoorimage"></div>
+                    <div id="jumpscaretest" onclick="jumpscare()"></div>
 
                     <div id="fan"><img src="animationimages/fan/fan.gif" id="fananimation"></div>
                     <div id="freddynose" onclick="playfreddynose()"></div>
