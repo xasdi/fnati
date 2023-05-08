@@ -60,31 +60,31 @@ function startgame(){
     rightdoor = document.getElementById("rightdoorimage");
     rightbuttonsimage = document.getElementById("rightbuttonsimage");
 
-    leftdoorbutton.addEventListener("click", () => {
-        if((leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdoorbasic.png") || ( leftdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/leftdooropen.gif")){
+    /*leftdoorbutton.addEventListener("click", () => {
+        if((leftdoor.src == "fnatiimages/doors/leftdoorbasic.png") || ( leftdoor.src == "fnatiimages/doors/leftdooropen.gif")){
             doorsound();
-            leftdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/leftdoorclose.gif";
+            leftdoor.src = "fnatiimages/doors/leftdoorclose.gif";
             
         } else{
             doorsound();
-            leftdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/leftdooropen.gif";
+            leftdoor.src = "fnatiimages/doors/leftdooropen.gif";
             
         }
         
     })
 
     rightdoorbutton.addEventListener("click", () => {
-        if((rightdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/rightdoorbasic.png") || ( rightdoor.src == "http://127.0.0.1:5500/fnatiimages/doors/rightdooropen.gif")){
+        if((rightdoor.src == "fnatiimages/doors/rightdoorbasic.png") || ( rightdoor.src == "fnatiimages/doors/rightdooropen.gif")){
             doorsound();
-            rightdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/rightdoorclose.gif";
+            rightdoor.src = "fnatiimages/doors/rightdoorclose.gif";
             
         } else{
             doorsound();
-            rightdoor.src = "http://127.0.0.1:5500/fnatiimages/doors/rightdooropen.gif";
+            rightdoor.src = "fnatiimages/doors/rightdooropen.gif";
             
         }
         
-    })
+    })*/
     
 
     leftlightbutton.addEventListener("mousedown", () => {
@@ -140,34 +140,34 @@ function startgame(){
 }
 
 function leftbuttonhandler(){
-    
     if(leftstate == 0){
         leftstate = 1;
-        leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png"; 
+        leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png";
+        doorsound();
+        leftdoor.src = "fnatiimages/doors/leftdoorclose.gif";
+
     } else {
         leftstate = 0;
         leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbasic.png"; 
+        doorsound();
+        leftdoor.src = "fnatiimages/doors/leftdooropen.gif";
     }
-
-        
-
-   
 }
 
 function rightbuttonhandler(){
-    
     if(rightstate == 0){
         rightstate = 1;
         rightbuttonsimage.src="fnatiimages/buttons/rightbuttondooron.png"; 
+        doorsound();
+        rightdoor.src = "fnatiimages/doors/rightdoorclose.gif";
     } else {
         rightstate = 0;
         rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbasic.png"; 
+        doorsound();
+        rightdoor.src = "fnatiimages/doors/rightdooropen.gif";
     }
-
-        
-
-   
 }
+
 function startloops(){
     start = true;
 }
