@@ -13,6 +13,10 @@ var fananimate = 1;
 var background;
 var leftstate = 0;
 var rightstate = 0;
+var jumpscaredisplay;
+var jumpscaredisplayimage;
+var gamelook;
+var menulook;
 
 var leftdoorbutton;
 var leftbuttons;
@@ -28,14 +32,23 @@ var rightbuttonsimage;
 
 
 function startgame(){
+
+    gamelook = document.getElementById("game");
+    gamelook.style.display = "block";
+
+    menulook = document.getElementById("menu");
+    menulook.style.display = "none";
+
     imagechangeposition = document.getElementById("actionboxes");
     leftarrow = document.getElementById("leftscrollbutton");
     rightarrow = document.getElementById("rightscrollbutton");
     imageref = document.getElementById("actionboxes");
     fanimage = document.getElementById("fananimation");
     background = document.getElementById("imagebackground");
-
+    jumpscaredisplayimage = document.getElementById("jumpscaredisplayimage");
+    jumpscaredisplay = document.getElementById("jumpscaredisplay");
     leftdoorbutton = document.getElementById("leftdoorbutton");
+
     leftbuttons = document.getElementById("leftbuttons");
     leftlightbutton = document.getElementById("leftlightbutton");
     leftdoor = document.getElementById("leftdoorimage");
@@ -197,6 +210,34 @@ function checkmouseposition(){
     }
 }
 
+function jumpscare(){
+    jumpscaredisplayimage.src = "fnatiimages/jumpscare/freddy.gif";
+    jumpscaredisplay.style.display = "block";
+    jumpscarescream();
+    setTimeout(()=> {
+
+        static();
+  
+    }, 2000);
+}
+
+function static(){
+    playstaticsound();
+    jumpscaredisplayimage.src = "fnatiimages/jumpscare/static.gif";
+
+    setTimeout(()=> {
+
+        returntomenu();
+  
+    }, 3000);
+}
+
+function returntomenu(){
+    jumpscaredisplayimage.src = "";
+    jumpscaredisplay.style.display = "none";
+    gamelook.style.display = "none";
+    menulook.style.display = "block";
+}
 
 
 

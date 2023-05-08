@@ -11,10 +11,16 @@
     <script src="audioengine.js"></script>
 </head>
 <body>
+    <div id="jumpscaredisplay"><img src="" id="jumpscaredisplayimage"></div>
+    <div id="menu">
+        <h1>FNATI</h1><br>
+        <button onclick="startloops(), startgame()">GRAJ</button>
+        <br>
+    </div>
     <div id="gamehandler">
         <div id="game">
             <div id="backgroundcontainer">
-                <div id="jumpscaredisplay"></div>
+                
                 <div id="actionboxes">
                     <img id="imagebackground" src="fnatiimages/locations/background.jpg">
                     
@@ -41,7 +47,5 @@
 
         </div>
     </div>
-    <button onclick="startloops(), startgame()">Load</button>
-    <button onclick="showzmienne()">show zmienne</button>
 </body>
 </html>
