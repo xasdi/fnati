@@ -22,6 +22,7 @@ var playbutton;
 var playdotanimation = 1;
 
 
+
 var leftdoorbutton;
 var leftbuttons;
 var leftlightbutton;
@@ -166,10 +167,16 @@ function checkmouseposition(){
     });
 
     if(scrolleft==1 && currentimageposition <= -6){
-        /*console.log(currentimageposition);*/
+        console.log(currentimageposition);
         newimageposition = currentimageposition + 10;
         imagechangeposition.style.left = newimageposition + "px";
     }
+
+    if(currentimageposition == 0){
+        leftarrow.style.display = "none";
+    }else{
+        leftarrow.style.display = "block";
+    } 
 
     rightarrow.addEventListener("mouseover", () => {
         scrollright = 1; 
@@ -182,7 +189,7 @@ function checkmouseposition(){
     });
 
     if(scrollright==1 && currentimageposition >= -399){
-        /*console.log(currentimageposition);*/
+        console.log(currentimageposition);
         newimageposition = currentimageposition - 10;
         imagechangeposition.style.left = newimageposition + "px";
     }
@@ -243,12 +250,26 @@ function loadImage(){
         })    
        
         queue.loadManifest([
-        "fnatiimages/locations/lightleft.png", 
+        "fnatiimages/locations/lightright.png",    
+        "fnatiimages/locations/lightleft.png",
+
+        "fnatiimages/buttons/leftbuttonbothon.png",
+        "fnatiimages/buttons/leftbuttondooron.png",
+        "fnatiimages/buttons/leftbuttonlighton.png",
+
+        "fnatiimages/buttons/rightbuttonbothon.png",
+        "fnatiimages/buttons/rightbuttondooron.png",
+        "fnatiimages/buttons/rightbuttonlighton.png",
+
+        "fnatiimages/doors/leftdooropen.gif",
+        "fnatiimages/doors/leftdoorclose.gif",
+        "fnatiimages/doors/rightdooropen.gif",
+        "fnatiimages/doors/rightdoorclose.gif",
 
         "fnatiimages/jumpscare/freddy.gif",
+        "fnatiimages/jumpscare/static.gif",
 
-        "sound/flashlight.wav",
-        "sounds/door.wav",
+        
 
 
     
