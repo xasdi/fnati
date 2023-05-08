@@ -6,16 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FNATI</title>
     <link rel="stylesheet" href="fnatiistyle.css">
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="gametick.js"></script>
     <script src="gameevents.js"></script>
     <script src="audioengine.js"></script>
+    
+    
+    
 </head>
-<body>
+<body onload="dotanimationfunction(), progressbarloadin(), loadImage()">
     <div id="jumpscaredisplay"><img src="" id="jumpscaredisplayimage"></div>
     <div id="menu">
-        <h1>FNATI</h1><br>
-        <button onclick="startloops(), startgame()">GRAJ</button>
+        <h1 class="nomargin">FNATI</h1>
+        <h6 class="nomargin">Five Nights At Technik Informatyk</h6>
         <br>
+        <h6>Loading<span id="dotanimation"></span></h6>
+        <div id="loadingbar"><div id="progress"></div></div>
+        <br>
+        <button onclick="startloops(), startgame()" id="playbutton">GRAJ</button>
+        
+        <br>
+        
     </div>
     <div id="gamehandler">
         <div id="game">
@@ -44,8 +55,10 @@
                 <button class="scrollbuttons"  id="rightscrollbutton" ></button>
             </div>
             
+            
 
         </div>
     </div>
+    
 </body>
 </html>

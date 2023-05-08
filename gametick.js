@@ -17,6 +17,10 @@ var jumpscaredisplay;
 var jumpscaredisplayimage;
 var gamelook;
 var menulook;
+var progressbar;
+var playbutton;
+var playdotanimation = 1;
+
 
 var leftdoorbutton;
 var leftbuttons;
@@ -32,6 +36,7 @@ var rightbuttonsimage;
 
 
 function startgame(){
+    progressbar = document.getElementById("progress");
 
     gamelook = document.getElementById("game");
     gamelook.style.display = "block";
@@ -59,33 +64,6 @@ function startgame(){
     rightlightbutton = document.getElementById("rightlightbutton");
     rightdoor = document.getElementById("rightdoorimage");
     rightbuttonsimage = document.getElementById("rightbuttonsimage");
-
-    /*leftdoorbutton.addEventListener("click", () => {
-        if((leftdoor.src == "fnatiimages/doors/leftdoorbasic.png") || ( leftdoor.src == "fnatiimages/doors/leftdooropen.gif")){
-            doorsound();
-            leftdoor.src = "fnatiimages/doors/leftdoorclose.gif";
-            
-        } else{
-            doorsound();
-            leftdoor.src = "fnatiimages/doors/leftdooropen.gif";
-            
-        }
-        
-    })
-
-    rightdoorbutton.addEventListener("click", () => {
-        if((rightdoor.src == "fnatiimages/doors/rightdoorbasic.png") || ( rightdoor.src == "fnatiimages/doors/rightdooropen.gif")){
-            doorsound();
-            rightdoor.src = "fnatiimages/doors/rightdoorclose.gif";
-            
-        } else{
-            doorsound();
-            rightdoor.src = "fnatiimages/doors/rightdooropen.gif";
-            
-        }
-        
-    })*/
-    
 
     leftlightbutton.addEventListener("mousedown", () => {
         background.src="fnatiimages/locations/lightleft.png";
@@ -239,21 +217,80 @@ function returntomenu(){
     menulook.style.display = "block";
 }
 
-
-
-
-
-function showzmienne(){
-    console.log(imagechangeposition);
-    console.log(leftbuttonsimage);
+function progressbarloadin(){
+    progressbar = document.getElementById("progress");
+    playbutton = document.getElementById("playbutton");
+    dotanimation = document.getElementById("dotanimation");
 
 }
 
+function loadImage(){
+    var queue = new createjs.LoadQueue(false);
 
 
+        queue.on("fileload", handleFileComplete);
+        queue.on('progress', event => {
+            let progress = Math.floor(event.progress * 100);
+            this.progressbar.style.width = progress+'%';
+            if (progress == 100) {
+                console.log('all done');
+            }
+        })
+
+        queue.on('complete', event => {
+            playbutton.style.visibility = "visible";
+            playdotanimation = 0;
+        })    
+       
+        queue.loadManifest([
+        "fnatiimages/locations/lightleft.png", 
+
+        "fnatiimages/jumpscare/freddy.gif",
+
+        "sound/flashlight.wav",
+        "sounds/door.wav",
 
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ]);
+    
+        function handleFileComplete(event) {
+        
+        
+        }
 
+        
+    }
 
-
+    async function dotanimationfunction(){
+        if(playdotanimation == 1){
+            dotanimation.innerHTML = "";
+            await sleep(500);
+            dotanimation.innerHTML = ".";
+            await  sleep(500);
+            dotanimation.innerHTML = "." + "" + ".";
+            await  sleep(500);
+            dotanimation.innerHTML = "." + "." + ".";
+            setInterval(dotanimationfunction, 500);
+        }}
+        
+    const sleep = (ms) => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      };
 
