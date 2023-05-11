@@ -217,7 +217,7 @@ function checkmouseposition(){
 
                 hideactionboxes();
           
-            }, 400);
+            }, 500);
             
             document.getElementById("displayyy").innerHTML = "1";
            
@@ -226,6 +226,7 @@ function checkmouseposition(){
             camsenable = false;
             camstatus = 1;
             screendown();
+            hidebuttons();
             setTimeout(()=> {
 
                 showactionboxes();
@@ -247,11 +248,20 @@ function checkmouseposition(){
 function showactionboxes(){
     cameradisplay.style.display = "none";
     document.getElementById("actionboxes").style.display = "block";
+   
 }
 
 function hideactionboxes(){
-    
+    cameradisplay.style.backgroundcolor = "black";
     document.getElementById("actionboxes").style.display = "none";
+    cameraimage.src = "fnatiimages/locations/bed.jpg";
+    document.getElementById("camerabuttons").style.display = "block";
+    
+}
+
+
+function hidebuttons(){
+    document.getElementById("camerabuttons").style.display = "none";
 }
 
 function screenup(){
