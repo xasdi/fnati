@@ -20,6 +20,9 @@ var menulook;
 var progressbar;
 var playbutton;
 var playdotanimation = 1;
+var cams;
+var camsenable = true;
+var opencount = 1;
 
 
 
@@ -45,6 +48,7 @@ function startgame(){
     menulook = document.getElementById("menu");
     menulook.style.display = "none";
 
+    cams = document.getElementById("cams");
     imagechangeposition = document.getElementById("actionboxes");
     leftarrow = document.getElementById("leftscrollbutton");
     rightarrow = document.getElementById("rightscrollbutton");
@@ -167,7 +171,7 @@ function checkmouseposition(){
     });
 
     if(scrolleft==1 && currentimageposition <= -6){
-        console.log(currentimageposition);
+        /* console.log(currentimageposition); */
         newimageposition = currentimageposition + 10;
         imagechangeposition.style.left = newimageposition + "px";
     }
@@ -189,11 +193,38 @@ function checkmouseposition(){
     });
 
     if(scrollright==1 && currentimageposition >= -399){
-        console.log(currentimageposition);
+        /* console.log(currentimageposition); */
         newimageposition = currentimageposition - 10;
         imagechangeposition.style.left = newimageposition + "px";
     }
-}
+
+    /*cams.addEventListener("mouseover", () => {
+        for(let i=0; i<1; i++){
+            console.log(i)
+            console.log("aa")
+        }
+    }) */
+
+    cams.addEventListener("mouseover", () => {
+        
+        if(camsenable == true && opencount == 1){
+            camsenable = false;
+            opencount ++;
+            document.getElementById("displayyy").innerHTML = "1";
+           
+        }
+        if(camsenable == true && opencount == 2){
+            camsenable = false;
+            document.getElementById("displayyy").innerHTML = "2";
+            opencount = 1;
+        }
+
+    });
+
+    cams.addEventListener("mouseleave", () => {
+        camsenable = true;
+    }
+)};
 
 function jumpscare(){
     jumpscaredisplayimage.src = "fnatiimages/jumpscare/freddy.gif";

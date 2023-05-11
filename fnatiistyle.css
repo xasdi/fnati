@@ -65,11 +65,26 @@ body{
 
 }
 
+#displayyy{
+    color: white;
+}
+
 #rightscrollbutton{
     position: absolute;
     right: 5px;
     background-size: 40px 300px;
     background-repeat: no-repeat;
+}
+
+#cams{
+    position: absolute;
+    width: 600px;
+    height: 40px;
+    background-color: gray;
+    opacity: 0.5;
+    left: 300px;
+    bottom: 20px;
+    z-index: 1000;
 }
 
 .scrollbuttons{
@@ -237,6 +252,7 @@ body{
 #menu{
     color: white;
     text-align: center;
+    
 }
 
 #game{
