@@ -76,16 +76,6 @@ body{
     background-repeat: no-repeat;
 }
 
-#cams{
-    position: absolute;
-    width: 600px;
-    height: 40px;
-    background-color: gray;
-    opacity: 0.5;
-    left: 300px;
-    bottom: 20px;
-    z-index: 1000;
-}
 
 .scrollbuttons{
     background-color: red;
@@ -282,3 +272,32 @@ body{
     visibility: hidden;
 }
 
+#camerasdiv{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    margin: 0;
+    padding: 0;
+    
+    width: 1200px;
+    height: 720px;
+    
+}
+
+#cams{
+    position: absolute;
+    width: 600px;
+    height: 60px;
+    background-color: gray;
+    opacity: 0.5;
+    left: 300px;
+    bottom: 0px;
+    z-index: 1002;
+}
+
+#cameraimage{
+    width: 1200px;
+    height: 720px;
+}

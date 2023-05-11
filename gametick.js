@@ -23,6 +23,9 @@ var playdotanimation = 1;
 var cams;
 var camsenable = true;
 var opencount = 1;
+var camstatus;
+var cameradisplay;
+var cameraimage;
 
 
 
@@ -48,6 +51,8 @@ function startgame(){
     menulook = document.getElementById("menu");
     menulook.style.display = "none";
 
+    cameraimage = document.getElementById("cameraimage");
+    cameradisplay = document.getElementById("camerasdiv");
     cams = document.getElementById("cams");
     imagechangeposition = document.getElementById("actionboxes");
     leftarrow = document.getElementById("leftscrollbutton");
@@ -198,23 +203,36 @@ function checkmouseposition(){
         imagechangeposition.style.left = newimageposition + "px";
     }
 
-    /*cams.addEventListener("mouseover", () => {
-        for(let i=0; i<1; i++){
-            console.log(i)
-            console.log("aa")
-        }
-    }) */
+    
 
     cams.addEventListener("mouseover", () => {
         
         if(camsenable == true && opencount == 1){
             camsenable = false;
             opencount ++;
+            camstatus = 1;
+            cameradisplay.style.display = "block";
+            screenup();
+            setTimeout(()=> {
+
+                hideactionboxes();
+          
+            }, 400);
+            
             document.getElementById("displayyy").innerHTML = "1";
            
         }
         if(camsenable == true && opencount == 2){
             camsenable = false;
+            camstatus = 1;
+            screendown();
+            setTimeout(()=> {
+
+                showactionboxes();
+          
+            }, 600);
+            
+            document.getElementById("actionboxes").style.display = "block";
             document.getElementById("displayyy").innerHTML = "2";
             opencount = 1;
         }
@@ -225,6 +243,24 @@ function checkmouseposition(){
         camsenable = true;
     }
 )};
+
+function showactionboxes(){
+    cameradisplay.style.display = "none";
+    document.getElementById("actionboxes").style.display = "block";
+}
+
+function hideactionboxes(){
+    
+    document.getElementById("actionboxes").style.display = "none";
+}
+
+function screenup(){
+    cameraimage.src = "fnatiimages/cams/screenanimation/screenpopon.gif";
+}
+
+function screendown(){
+    cameraimage.src = "fnatiimages/cams/screenanimation/screenpopoff.gif";
+}
 
 function jumpscare(){
     jumpscaredisplayimage.src = "fnatiimages/jumpscare/freddy.gif";
