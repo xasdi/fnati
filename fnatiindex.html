@@ -19,21 +19,41 @@
     <div id="menu">
         <h1 class="nomargin">FNATI</h1>
         <h6 class="nomargin">Five Nights At Technik Informatyk</h6>
-        <br>
         <h6>Loading<span id="dotanimation"></span></h6>
         <div id="loadingbar"><div id="progress"></div></div>
         <br>
-        <button onclick="startloops(), startgame()" id="playbutton">GRAJ</button>
+        <button onclick="gotomainmenu()" id="playbutton">GRAJ</button>
         
         <br>
         
+    </div>
+    <div id="actualmenu" >
+        <img id="menustatic" src="fnatiimages/jumpscare/static.gif">
+        
+        <div id="title">
+            <h6 class="nomargin"></h6>Five</h6><br>
+            <h6 class="nomargin"></h6>Nights</h6><br>
+            <h6 class="nomargin"></h6>At</h6><br>
+            <h6 class="nomargin"></h6>Technik</h6><br>
+            <h6 class="nomargin"></h6>Informatyk</h6><br>
+            <br>
+            <div class="menubutton" onclick="startloops(), startgame()" class="playbutton" >Graj</div>
+            <div class="menubutton" onclick="gasp()">Custom Night</div>
+            <div class="menubutton">Credits</div>
+            <img id="menuanimatron" src="fnatiimages/menu/kaminskymenu.png">
+
+        </div>
+        <br>
+        
+        <div id="podpis">	&copy;2023 xanzdi</div>
+        <div id="version">	v1.0</div>
     </div>
     <div id="gamehandler">
         <div id="game">
             <div id="camerasdiv"><img src="" id="cameraimage">
                 
                 <div id="camerabuttons">
-                    <div id="locationtext">Main Staircase</div>
+                    <div id="locationtext">Główne Schody</div>
                     <div id="kibelb" class="camerabutton" data-value="5" onclick="camerachangeimage(this.getAttribute('data-value'))">05</div>
                     <div id="schodyb" class="camerabutton" data-value="4" onclick="camerachangeimage(this.getAttribute('data-value'))">04</div>
                     <div id="hallwayb" class="camerabutton" data-value="3" onclick="camerachangeimage(this.getAttribute('data-value'))">03</div>

@@ -43,12 +43,18 @@ var rightbuttonsimage;
 
 
 function startgame(){
+
+    document.body.style.display = "flex";
+    document.body.style.alignItems = "center";
+    document.body.style.justifyContent = "center";
+
+    
     progressbar = document.getElementById("progress");
 
     gamelook = document.getElementById("game");
     gamelook.style.display = "block";
 
-    menulook = document.getElementById("menu");
+    menulook = document.getElementById("actualmenu");
     menulook.style.display = "none";
 
     cameraimage = document.getElementById("cameraimage");
@@ -124,6 +130,7 @@ function startgame(){
      /*fansound();
     setInterval(fansound, 100);  wentylator dziwek, loop z przerwą między audio do naprawy*/
     /*setInterval(animatefan, 80);*/
+    
     setInterval(checkmouseposition, 20);
 }
 
@@ -269,6 +276,7 @@ function screenup(){
 }
 
 function screendown(){
+    document.getElementById("locationtext").innerHTML = "Główne Schody";
     cameraimage.src = "fnatiimages/cams/screenanimation/screenpopoff.gif";
 }
 
@@ -433,4 +441,35 @@ function camerachangeimage(value) {
     break;
    
   }
+}
+
+function gotomainmenu(){
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("actualmenu").style.display = "block";
+    document.body.style.display = "block";
+    setInterval(menuflicker, 500);
+}
+
+function gasp(){
+    document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskyfuck.png";
+}
+
+function menuflicker(){
+    var random = Math.floor(Math.random() * 10);
+    console.log(random);
+    if(random == 3){
+        document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskyfuck.png";
+        setTimeout(()=> {
+
+            document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskymenu.png";
+        }, 500);
+    }
+    if(random == 8){
+        document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskybald.png";
+        setTimeout(()=> {
+
+            document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskymenu.png";
+        }, 500);
+    }
+    
 }
