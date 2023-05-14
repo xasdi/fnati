@@ -254,7 +254,7 @@ function showactionboxes(){
 function hideactionboxes(){
     cameradisplay.style.backgroundcolor = "black";
     document.getElementById("actionboxes").style.display = "none";
-    cameraimage.src = "fnatiimages/locations/bed.jpg";
+    cameraimage.src = "fnatiimages/cams/camlocations/mainstaircase.jpg";
     document.getElementById("camerabuttons").style.display = "block";
     
 }
@@ -392,3 +392,45 @@ function loadImage(){
         return new Promise((resolve) => setTimeout(resolve, ms));
       };
 
+
+function camerachangeimage(value) {
+  switch (value) {
+    case '1':
+        document.getElementById("locationtext").innerHTML = "Główne Schody";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/mainstaircase.jpg";
+    break;
+    case '2':
+        document.getElementById("locationtext").innerHTML = "Korytarz A";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/hallwaya.jpg";
+    break;
+    case '3':
+        document.getElementById("locationtext").innerHTML = "Korytarz B";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/hallwayb.jpg";
+    break;
+    case '4':
+        document.getElementById("locationtext").innerHTML = "Schody B";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/staircaseb.jpg";
+    break;
+    case '5':
+        document.getElementById("locationtext").innerHTML = "Toaleta B";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/kibelb.jpg";
+    break;
+    case '6':
+        document.getElementById("locationtext").innerHTML = "Pracownia 57";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/fiftysevenb.jpg";
+    break;
+    case '7':
+        document.getElementById("locationtext").innerHTML = "Szczyt";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/szczyt.jpg";
+    break;
+    case '8':
+        document.getElementById("locationtext").innerHTML = "Steven Linux";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/stiven.jpg"
+    break;
+    case '9':
+        document.getElementById("locationtext").innerHTML = "Toaleta A";
+        document.getElementById("cameraimage").src = "fnatiimages/cams/camlocations/kibela.jpg";
+    break;
+   
+  }
+}
