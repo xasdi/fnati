@@ -7,6 +7,7 @@ body,html {
     height: 100%;
     padding: 0;
     margin: 0;
+    
 }
 body{
     background-color: black;
@@ -405,6 +406,7 @@ body{
     left: 100px;
     position: absolute;
     top: 200px;
+    z-index: 999999;
 }
 
 #podpis{
@@ -441,4 +443,18 @@ body{
     right: 100px;
     width: 900px;
     height: 1150px;
+}
+
+.menubutton{
+    width: 500px;
+}
+.menubutton:hover{
+    cursor: pointer;
+    color: rgb(179, 179, 179);
+}
+
+#powerdisplay{
+    position: absolute;
+    color: white;
+    font-size: 50px;
 }

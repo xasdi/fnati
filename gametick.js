@@ -11,8 +11,13 @@ var newimageposition = 0;
 var fanimage;
 var fananimate = 1;
 var background;
-var leftstate = 0;
-var rightstate = 0;
+
+var leftdoorstate = 0;
+var rightdoorstate = 0;
+
+var leftlightstate = 0;
+var rightlightstate = 0;
+
 var jumpscaredisplay;
 var jumpscaredisplayimage;
 var gamelook;
@@ -26,6 +31,10 @@ var opencount = 1;
 var camstatus;
 var cameradisplay;
 var cameraimage;
+var shouldthiswork = 0;
+
+var power = 99;
+var drainagelvl = 0;
 
 
 
@@ -43,7 +52,7 @@ var rightbuttonsimage;
 
 
 function startgame(){
-
+    shouldthiswork = 0;
     document.body.style.display = "flex";
     document.body.style.alignItems = "center";
     document.body.style.justifyContent = "center";
@@ -83,7 +92,7 @@ function startgame(){
 
     leftlightbutton.addEventListener("mousedown", () => {
         background.src="fnatiimages/locations/lightleft.png";
-        if(leftstate == 1){
+        if(leftlightstate == 1){
             leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbothon.png";
         }else{
         leftbuttonsimage.src="fnatiimages/buttons/leftbuttonlighton.png";
@@ -93,7 +102,7 @@ function startgame(){
 
     leftlightbutton.addEventListener("mouseup", () => {
         background.src="fnatiimages/locations/background.jpg";
-        if(leftstate == 1){
+        if(leftlightstate == 1){
             leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png";
         }else{
             leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbasic.png";
@@ -105,7 +114,7 @@ function startgame(){
 
     rightlightbutton.addEventListener("mousedown", () => {
         background.src="fnatiimages/locations/lightright.png";
-        if(rightstate == 1){
+        if(rightlightstate == 1){
             rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbothon.png";
         }else{
             rightbuttonsimage.src="fnatiimages/buttons/rightbuttonlighton.png";
@@ -116,7 +125,7 @@ function startgame(){
     rightlightbutton.addEventListener("mouseup", () => {
         background.src="fnatiimages/locations/background.jpg";
         
-        if(rightstate == 1){
+        if(rightlightstate == 1){
             rightbuttonsimage.src="fnatiimages/buttons/rightbuttondooron.png";
         }else{
             rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbasic.png";
@@ -125,7 +134,7 @@ function startgame(){
         
     })
 
-
+    
     
      /*fansound();
     setInterval(fansound, 100);  wentylator dziwek, loop z przerwą między audio do naprawy*/
@@ -135,14 +144,14 @@ function startgame(){
 }
 
 function leftbuttonhandler(){
-    if(leftstate == 0){
-        leftstate = 1;
+    if(leftdoorstate == 0){
+        leftdoorstate = 1;
         leftbuttonsimage.src="fnatiimages/buttons/leftbuttondooron.png";
         doorsound();
         leftdoor.src = "fnatiimages/doors/leftdoorclose.gif";
 
     } else {
-        leftstate = 0;
+        leftdoorstate = 0;
         leftbuttonsimage.src="fnatiimages/buttons/leftbuttonbasic.png"; 
         doorsound();
         leftdoor.src = "fnatiimages/doors/leftdooropen.gif";
@@ -150,13 +159,13 @@ function leftbuttonhandler(){
 }
 
 function rightbuttonhandler(){
-    if(rightstate == 0){
-        rightstate = 1;
+    if(rightdoorstate == 0){
+        rightdoorstate = 1;
         rightbuttonsimage.src="fnatiimages/buttons/rightbuttondooron.png"; 
         doorsound();
         rightdoor.src = "fnatiimages/doors/rightdoorclose.gif";
     } else {
-        rightstate = 0;
+        rightdoorstate = 0;
         rightbuttonsimage.src="fnatiimages/buttons/rightbuttonbasic.png"; 
         doorsound();
         rightdoor.src = "fnatiimages/doors/rightdooropen.gif";
@@ -165,6 +174,7 @@ function rightbuttonhandler(){
 
 function startloops(){
     start = true;
+    
 }
 
 function checkmouseposition(){
@@ -316,6 +326,35 @@ function progressbarloadin(){
 
 }
 
+async function powerusage(){
+    drainagelvl = rightdoorstate + leftdoorstate + rightlightstate + leftlightstate;
+    document.getElementById('powerdisplay').innerHTML = drainagelvl;
+    let powerdecreasetimer
+    if(drainagelvl == 0){
+        powerdecreasetimer = 10;
+    }
+    if(drainagelvl == 1){
+        powerdecreasetimer = 8;
+    }
+    if(drainagelvl == 2){
+        powerdecreasetimer = 6;
+    }
+    if(drainagelvl == 3){
+        powerdecreasetimer = 4;
+    }
+    if(drainagelvl == 4){
+        powerdecreasetimer = 2;
+    }
+    /*for(i=drainagelvl;i>0;){
+        i--;
+        power--;
+       
+        sleep(1000)
+    }*/
+
+    setInterval(powerusage, 1000);
+}
+
 function loadImage(){
     var queue = new createjs.LoadQueue(false);
 
@@ -448,15 +487,13 @@ function gotomainmenu(){
     document.getElementById("actualmenu").style.display = "block";
     document.body.style.display = "block";
     setInterval(menuflicker, 500);
+    shouldthiswork = 1;
 }
 
-function gasp(){
-    document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskyfuck.png";
-}
 
 function menuflicker(){
-    var random = Math.floor(Math.random() * 10);
-    console.log(random);
+    if(shouldthiswork == 1){
+        var random = Math.floor(Math.random() * 10);
     if(random == 3){
         document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskyfuck.png";
         setTimeout(()=> {
@@ -471,5 +508,9 @@ function menuflicker(){
             document.getElementById("menuanimatron").src = "fnatiimages/menu/kaminskymenu.png";
         }, 500);
     }
+    }
+    
     
 }
+
+/* ee */

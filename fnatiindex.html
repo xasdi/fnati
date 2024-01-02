@@ -37,9 +37,9 @@
             <h6 class="nomargin"></h6>Technik</h6><br>
             <h6 class="nomargin"></h6>Informatyk</h6><br>
             <br>
-            <div class="menubutton" onclick="startloops(), startgame()" class="playbutton" >Graj</div>
-            <div class="menubutton" onclick="gasp()">Custom Night</div>
-            <div class="menubutton">Credits</div>
+            <div class="menubutton" onclick="startloops(), startgame(), powerusage()" class="playbutton" >Nowa Gra</div>
+            <div class="menubutton">Custom Night</div>
+            <div class="menubutton" >Credits</div>
             <img id="menuanimatron" src="fnatiimages/menu/kaminskymenu.png">
 
         </div>
@@ -49,6 +49,7 @@
         <div id="version">	v1.0</div>
     </div>
     <div id="gamehandler">
+        <div id="powerdisplay"></div>
         <div id="game">
             <div id="camerasdiv"><img src="" id="cameraimage">
                 
@@ -84,6 +85,7 @@
 
                     <div id="fan"><img src="animationimages/fan/fan.gif" id="fananimation"></div>
                     <div id="freddynose" onclick="playfreddynose()"></div>
+                    
                 </div>
                 <button class="scrollbuttons"  id="leftscrollbutton" ></button>
             <button class="scrollbuttons"  id="rightscrollbutton" ></button>
